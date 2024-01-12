@@ -81,7 +81,7 @@ while True:
         # görüntüyü göster
         cv2.imshow("Image", img)
 
-        # klavye olaylarını dinleyin
+     
         key = cv2.waitKey(10) & 0xFF
 
         if key == ord('q'):
@@ -94,17 +94,14 @@ while True:
             new_frame = max(0, int(current_frame - cap.get(cv2.CAP_PROP_FPS)))
             cap.set(cv2.CAP_PROP_POS_FRAMES, new_frame)
     else:
-        # Display a message when the video is paused
+      
         cv2.putText(img, 'Video Durdu', (50, 60), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 255), 2)
         cv2.imshow("Image", img)
 
-        # Resume video when 'd' key is pressed
         key = cv2.waitKey(10) & 0xFF
         if key == ord('d'):
             pause = False
 
-# Videoyu serbest bırakın
 cap.release()
 
-# Pencereyi kapatın
 cv2.destroyAllWindows()
